@@ -47,7 +47,7 @@ class Veterinarian(models.Model):
 class Animal(models.Model):
     nickname = models.CharField(max_length=20, verbose_name='Кличка')
     type_of_animal = models.ForeignKey(Type_of_animal, on_delete=models.SET_DEFAULT, default=1, verbose_name='Тип животного')
-    onwer = models.ForeignKey(Owner, verbose_name='Хозяин')
+    onwer = models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True, verbose_name='Хозяин')
     age = models.IntegerField(verbose_name='Возраст')
     weight = models.FloatField(verbose_name='Вес')
     veterinarian = models.ManyToManyField(Veterinarian, verbose_name='Ветеринар - специалист')
