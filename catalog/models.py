@@ -23,6 +23,10 @@ class Owner(models.Model):
     lname = models.CharField(max_length=20, verbose_name='Фамилия')
     tel = models.CharField(max_length=13, verbose_name='Телефон')
 
+    def __str__(self):
+        # return f'{self.lname} {self.fname}'
+        return f'{self.fname} {self.lname}'
+
 class Age(models.Model):
     year = models.IntegerField(verbose_name='Возраст')
 
@@ -53,12 +57,12 @@ class Animal(models.Model):
     veterinarian = models.ManyToManyField(Veterinarian, verbose_name='Ветеринар - специалист')
     summary = models.TextField(max_length=500, verbose_name='Описание')
 
-    # def __str__(self):
-    #     return self.nickname
-    #
-    # def display_actors(self):
+    def __str__(self):
+        return self.nickname
+
+    # def display_veterinar(self):
     #     res = ''
-    #     for a in self.actor.all():
+    #     for a in self.veterinarian.all():
     #         res += a.lname + ' '
     #     return res
-    # display_actors.short_description='Актеры'
+    # display_veterinar().short_description='Специалист'
