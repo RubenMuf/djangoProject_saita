@@ -21,4 +21,7 @@ from catalog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
+    path('kino/', views.Kino_list.as_view(), name='allkino'),
+    # path('kino/<int:id>/', views.info, name='info'),
+    path('kino/<slug:pk>/', views.Kino_detail.as_view(), name='info'),
 ]
