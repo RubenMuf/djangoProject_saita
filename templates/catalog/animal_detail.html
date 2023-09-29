@@ -1,0 +1,17 @@
+{% extends 'index.html' %}  {#копия из другого файла#}
+
+{% block content %}
+    <h3>Питомец - {{animal.nickname}}:</h3>
+    <ul>
+        <li>
+
+            <p>Хозяин питомца - {{ animal.onwer }}.</p>
+            <p>Вид животного - {{ animal.type_of_animal }}.</p>
+            <p>Возраст питомца - {{ animal.age }} года/лет.</p>
+            <p>Вес питомца - {{ animal.weight }} кг.</p>
+            <p>К какому ветеринару-специалисту - к {{ animal.veterinarian.first }}у.</p>
+            <p>Краткое описание питомца - {{ animal.summary }}.</p>
+        </li>
+
+    </ul>
+{% endblock content %}

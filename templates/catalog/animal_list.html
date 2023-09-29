@@ -1,0 +1,13 @@
+{% extends 'index.html' %}  {#копия из другого файла#}
+
+{% block content %}
+    <h2>Список животных.</h2>
+    <ul>{% for animal in animal_list %}
+        <li>
+        <a href="{% url 'info' pk=animal.id %}">{{ animal.nickname }}</a>
+{#        <p>{{ animal.get_absolute_url }}</p>#}
+{#        <p>Кличка питомца - {{ animal.nickname }}.</p>#}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock content %}

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 from django.db import models
 
@@ -66,3 +66,6 @@ class Animal(models.Model):
     #         res += a.lname + ' '
     #     return res
     # display_veterinar().short_description='Специалист'
+
+    def get_absolute_url(self):
+        return reverse('info', args=[self.id])

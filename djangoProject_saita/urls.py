@@ -21,4 +21,14 @@ from catalog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
+    # path('animal/', views.index, name='allanimal'),
+    path('animal/', views.Animal_list.as_view(), name='allanimal'),
+    path('owner/', views.Owner_list.as_view(), name='allowner'),
+    # path('animal/<int:id>/', views.info, name='info'), # путь к старому способу через функцию
+    path('animal/<slug:pk>/', views.Animal_detail.as_view(), name='info'),
 ]
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.index, name='home'),
+# ]
