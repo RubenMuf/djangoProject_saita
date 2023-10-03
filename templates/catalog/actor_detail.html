@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2>Актёр {{ actor.fname }} {{ actor.lname }}.</h2>
+    <p>Дата рождения {{ actor.born }}.</p>
+    <h2>Страна {{ actor.country }}.</h2>
+
+{#    <h2>Рейтинг {{ kino.ager }}.</h2>#}
+{#    <h2>Уровень подписки {{ kino.status }}.</h2>#}
+{#    <h2>Актеры</h2>#}
+{#    {% for actor in kino.actor.all %}#}
+{#        {% if not forloop.last %}#}
+{#        <h2 style="color: dodgerblue">{{ actor.fname }} {{ actor.lname }},</h2>#}
+{#            {% else %}#}
+{#            <h2 style="color: dodgerblue">{{ actor.fname }} {{ actor.lname }}.</h2>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{% endblock %}

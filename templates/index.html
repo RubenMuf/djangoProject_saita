@@ -1,29 +1,33 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  {# эта страница по сути является базовым шаблоном #}
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% block head %}
+    {% block head %}{# джанговская тема для вывода информации head, то для того чтобы менять информацию которая формируется в функциях во views.py #}
     <title>Кино</title>
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
     {% endblock head %}
 </head>
 <body>
-    {% block menu %}
+    {% block menu %}  {# джанговская тема для выбода меню, чтобы информация их функций views.py попадала на HTML #}
     <div class="menu">
-        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'home' %}">Главная</a> {# ссылки с путем по джанговской теме в {% путь который попадает в urls.py по имени %} #}
         <a href="{% url 'allkino' %}">Фильмы</a>
-        <a href="">Актеры</a>
+        <a href="{% url 'allactor' %}">Актеры</a>
         <a href="">Режиссеры</a>
         <a href="">Подписка</a>
+        <a href="{% url 'login' %}">Логин</a>
+        <a href="{% url 'logout' %}">Выйти</a>
+        <a href="{% url 'admin:index' %}">Кабинет администратора</a>
     </div>
-    {% endblock menu %}
-    {% block content %}
+    {% endblock menu %}{# конец блока меню, пишется обязательно #}
+
+    {% block content %}{# джанговская тема для вывода инфы в блок из питоновского файла views.py #}
+{#        <h1>Привет, {{ username }}!</h1>#}
         <h2>Каталог фильмов</h2>
             <h2>На сайте {{ k1 }} фильмов</h2>
             <h2>На сайте {{ k2 }} актеров</h2>
-            <h2>На сайте {{ k3 }} фильмов бесплатно</h2>
-
+            <h2>На сайте {{ k3 }} фильм/а бесплатно</h2>
     {% endblock content %}
 
 </body>

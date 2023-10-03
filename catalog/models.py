@@ -24,8 +24,11 @@ class Actor(models.Model):
     def __str__(self):
         return self.lname
 
+    def get_absolute_url(self): # автоматически формировка пути
+        return reverse('info_actor', args=[self.id, self.lname])
+
 class Status(models.Model):
-    VIBOR = (('бесплатно', 'бесплатно'), ('базовая', 'базовая'), ('супер', 'супер'))
+    VIBOR = (('Бесплатно', 'Бесплатно'), ('Базовая', 'Базовая'), ('Супер', 'Супер'))
     name = models.CharField(max_length=20, choices=VIBOR, verbose_name='Подписка')
 
     def __str__(self):
@@ -67,5 +70,5 @@ class Kino(models.Model):
     display_actors.short_description='Актеры'
 
 
-    def get_absolute_url(self):
-        return reverse('info', args=[self.id])
+    def get_absolute_url(self): # автоматически формировка пути
+        return reverse('info_movie', args=[self.id, self.title])

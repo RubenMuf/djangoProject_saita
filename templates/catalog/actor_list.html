@@ -1,22 +1,22 @@
 {% extends 'index.html' %}  {#копия из другого файла#}
 
 {% block content %}
-    <h2>Каталог фильмов</h2>
-    <ul>{% for kino in kino_list %}
+    <h2>Актеры</h2>
+    <ul>{% for actor in actor_list %}
         <li>
-        <a href="{{ kino.get_absolute_url }}">{{ kino.title }}</a>
-        <p>{{ kino.genre|title }}</p>
+        <a href="{{ actor.get_absolute_url }}">{{ actor.fname }} {{ actor.lname }}</a>
+        <p>{{ actor.country }}</p>
         </li>
     {% endfor %}
     </ul>
 
-{% if is_paginated %}{# готовый код из джанго, для вывода объектов на страницу по заданному колличеству, количество задаётся в views.py в методе основанного на классе #}
+{% if is_paginated %} {# готовый код из джанго, для вывода объектов на страницу по заданному колличеству, количество задаётся в views.py в методе основанного на классе #}
 
     <div class="pagination">
     <span class="step-links">
             {% if page_obj.has_previous %}
 {#    <a href="?page=1">&laquo; first</a>#}
-    <a href="?page={{ page_obj.previous_page_number }}">пред</a>
+    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
             {% endif %}
 
             <span class="current">
