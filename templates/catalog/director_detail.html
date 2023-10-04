@@ -1,14 +1,10 @@
 {% extends 'index.html' %}
 {% block content %}
-    <h2>Актёр {{ actor.fname }} {{ actor.lname }}.</h2>
-    <p>Дата рождения {{ actor.born }}.</p>
-    <h2>Страна - {{ actor.country }}.</h2>
+    <h2>Режиссер {{ director.fname }} {{ director.lname }}.</h2>
     <hr>
-    <h2>Фильмы в котором актер участвовал:</h2>
-    {% for kino in actor.kino_set.all %}
-        {% if not forloop.last %}<p>{{ kino.title }},</p>
-        {% else %}<p>{{ kino.title }}.</p>
-        {% endif %}
+    <h2>Фильм/ы который снимал:</h2>
+    {% for kino in director.kino_set.all %}
+        <p>{{ kino.title }}</p>
     {% endfor %}
 
 {#    <h2>Рейтинг {{ kino.ager }}.</h2>#}

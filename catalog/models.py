@@ -15,6 +15,9 @@ class Director(models.Model):
     def __str__(self):
         return f'{self.lname} {self.fname}'
 
+    def get_absolute_url(self): # автоматически формировка пути
+        return reverse('info_director', args=[self.id, self.lname])
+
 class Actor(models.Model):
     fname = models.CharField(max_length=20, verbose_name='Имя')
     lname = models.CharField(max_length=20, verbose_name='Фамилия')

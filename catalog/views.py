@@ -36,6 +36,13 @@ class Actor_list(generic.ListView):
 class Actor_detail(generic.DetailView): # модель на классе на модели метод один объект из списка
     model = Actor
 
+class Director_list(generic.ListView):
+    model = Director
+    paginate_by = 1  # джанговская функция по сколько фильмов выводить на страницу, работает в связке с остальным кодом на файле HTML
+
+class Director_detail(generic.DetailView): # модель на классе на модели метод один объект из списка
+    model = Director
+
 # def info(req, id):
 #     film = Kino.objects.get(id=id)
 #     return HttpResponse(film.title)

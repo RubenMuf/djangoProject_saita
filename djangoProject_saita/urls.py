@@ -26,6 +26,9 @@ urlpatterns = [
 
     path('actor/', views.Actor_list.as_view(), name='allactor'),
     path('actor/<slug:pk>/<str:lname>', views.Actor_detail.as_view(), name='info_actor'),
+
+    path('director/', views.Director_list.as_view(), name='alldirector'),
+    path('director/<slug:pk>/<str:lname>', views.Director_detail.as_view(), name='info_director'),
     # path('kino/<int:id>/', views.info, name='info'),
     path('user/', include('django.contrib.auth.urls')), # чтобы юзеры могли заходить на сайт в кабинет за счет переадресации include
 ]
