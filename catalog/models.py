@@ -51,16 +51,17 @@ class AgeRate(models.Model):
         return self.rate
 
 class Kino(models.Model):
-    title = models.CharField(max_length=20, verbose_name='Название')
+    title = models.CharField(max_length=40, verbose_name='Название')
     genre = models.ForeignKey(Genre, on_delete=models.SET_DEFAULT, default=1, verbose_name='Жанр')
     rating = models.FloatField(verbose_name='Оценка')
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True)
     director = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True)
-    summary = models.TextField(max_length=500, verbose_name='Описание')
+    summary = models.TextField(max_length=1000, verbose_name='Описание')
     year = models.IntegerField()
     ager = models.ForeignKey(AgeRate, on_delete=models.SET_NULL, null=True)
     actor = models.ManyToManyField(Actor, verbose_name='Актеры')
     status = models.ForeignKey(Status, on_delete=models.SET_DEFAULT, default=1)
+    image = models.CharField(max_length=100, blank=True, null=True, verbose_name='Картинки')
 
     def __str__(self):
         return self.title

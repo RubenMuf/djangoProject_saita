@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    {% block head %}
+        <title>Все фильмы</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/podpiska.css' %}">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% endblock head %}
+    <div class="container-fluid" style="margin-top: 30px">
+    <h2><span class="badge bg-secondary">Подписки</span></h2>
+    {% for one in podpiska %}
+        <h3  style="color: red" class="main">{{ one.name }}</h3>
+        <div class="cont">
+        {% for kino in one.kino_set.all  %}
+            <div class="card">
+                <img src="{% static kino.image %}" alt="">
+            <h4>{{ kino.title }}</h4>
+            <h6>{{ kino.genre }}</h6>
+
+                {% if not user.username %}
+                <a href="{% url 'prosmotr' kino.id one.id 0 %}">
+                    <button type="button" class="btn btn-primary">Смотреть</button></a>
+                {% else %}
+                <a href="{% url 'prosmotr' kino.id one.id user.id %}">
+                    <button type="button" class="btn btn-primary">Смотреть</button></a>
+            {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    <img src="{% static 'img/django.png'%} }}" alt="">
+    </div>
+{% endblock content%}

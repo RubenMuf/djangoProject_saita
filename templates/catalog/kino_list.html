@@ -1,10 +1,11 @@
 {% extends 'index.html' %}  {#копия из другого файла#}
 
 {% block content %}
-    <h2>Каталог фильмов:</h2>
+    <div class="container-fluid" style="margin-top: 30px">
+    <h2><span class="badge bg-secondary">Каталог фильмов:</span></h2>
     <ul>{% for kino in kino_list %}
         <li>
-        <a href="{{ kino.get_absolute_url }}">{{ kino.title }}</a>
+            <a href="{{ kino.get_absolute_url }}"><span class="badge bg-primary">{{ kino.title }}</span></a>
         <p>{{ kino.genre|title }}</p>
         </li>
     {% endfor %}
@@ -27,6 +28,8 @@
 {#    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}
             {% endif %}
     </span>
+    </div>
+
 </div>
 
 {% endif %}
