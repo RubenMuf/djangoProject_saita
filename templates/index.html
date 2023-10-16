@@ -20,7 +20,7 @@
 
     {% block content %}{# джанговская тема для вывода инфы в блок из питоновского файла views.py #}c
         <div class="container-fluid" style="margin-top: 30px">
-            <h1 style="color: brown"><span class="badge bg-secondary">Привет, <span style="color: dodgerblue">{{ username }}!</span></span></h1>
+            <h1 style="color: brown"><span class="badge bg-secondary">Привет, <span style="color: dodgerblue">{{ user_f_name }} {{ user_l_name }}!</span></span></h1>
             <h2>Предлагаем твоему вниманию!</h2>
             <h2>Каталог фильмов:</h2>
 {#            <hr>#}
@@ -30,6 +30,7 @@
             <h3><span style="color: red">{{ k3 }}</span> фильма/ов бесплатно.</h3>
         </div>
     {% endblock content %}
+
 
 </body>
 </html>

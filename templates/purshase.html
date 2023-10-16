@@ -1,0 +1,71 @@
+{% extends 'index.html' %}  {#копия из другого файла#}
+{% block content %}
+    {% csrf_token %}
+
+    {% if quantity == 1 %}
+        <div style="color: darkblue; padding-left: 35px" >
+            <h2>У вас сейчас {{ quantity }} подписка.</h2>
+            <h2>Сейчас ваша подписка {{ podpiska }}</h2>
+        </div>
+        <table>
+        <ul>
+            <h4><a style="color: red"  href="{% url 'del_' t1=podpiska.id %}">Отказаться от подписки {{ podpiska }}</a></h4>
+            <h4>
+                <a href="{% url 'app_' type_=2 %}">Получить подписку Базовая</a>
+            </h4>
+
+            <h4>
+                <a href="{% url 'app_' type_=3 %}">Получить подписку Супер</a>
+            </h4>
+        </ul>
+        </table>
+    {% elif quantity == 2 %}
+        <div style="color: darkblue; padding-left: 35px" >
+            <h2>У вас сейчас {{ quantity }} подписки.</h2>
+            <h2>Сейчас ваши подписки {{ podpiska }} и {{ podpiska2 }}.</h2>
+        </div>
+        <table>
+        <ul>
+            <h4><a style="color: red"  href="{% url 'del_' t1=podpiska.id  %}">Отказаться от подписки  {{ podpiska }}</a></h4>
+            <h4><a style="color: red"  href="{% url 'del_' t1=podpiska.id  %}">Отказаться от подписки  {{ podpiska2 }}</a></h4>
+            <h4>
+                <a href="{% url 'app_' type_=3 %}">Получить подписку Супер</a>
+            </h4>
+        </ul>
+        </table>
+    {% elif quantity == 3 %}
+        <div style="color: darkblue; padding-left: 35px" >
+            <h2>У вас сейчас {{ quantity }} подписки.</h2>
+            <h2>Сейчас ваши подписки {{ podpiska }}, {{ podpiska2 }} и {{ podpiska3 }}.</h2>
+        </div>
+        <table>
+        <ul>
+            <h4><a style="color: red" href="{% url 'del_' t1=podpiska.id  %}">Отказаться от подписки  {{ podpiska }}</a></h4>
+            <h4><a style="color: red"  href="{% url 'del_' t1=podpiska.id  %}">Отказаться от подписки  {{ podpiska2 }}</a></h4>
+            <h4><a style="color: red"  href="{% url 'del_' t1=podpiska.id  %}">Отказаться от подписки  {{ podpiska3 }}</a></h4>
+        </ul>
+        </table>
+    {% else %}
+        <div style="color: darkblue; padding-left: 35px" >
+        <h2>{{ none }}</h2>
+        </div>
+        <table>
+            <ul>
+{#                <li><a href="">Подписаться на подписку</a></li>#}
+            <h4>
+                <a href="{% url 'app_' type_=1 %}">Получить подписку Бесплатная</a>
+            </h4>
+
+            <h4>
+                <a href="{% url 'app_' type_=2 %}">Получить подписку Базовая</a>
+            </h4>
+
+            <h4>
+                <a href="{% url 'app_' type_=3 %}">Получить подписку Супер</a>
+            </h4>
+            </ul>
+        </table>
+    {% endif %}
+
+
+{% endblock content %}
